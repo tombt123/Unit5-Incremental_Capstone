@@ -1,0 +1,44 @@
+{
+  "best_model": "random_forest",
+  "registered_version": 2,
+  "mlflow_run_id": "08ee79e6caa84e92bafab5435ed8aa5e",
+  "trigger": "retrain",
+  "eval_rows": 800,
+  "metrics": {
+    "accuracy": 0.7238,
+    "precision": 0.7871,
+    "recall": 0.8118,
+    "f1": 0.7993,
+    "roc_auc": 0.7161
+  },
+  "all_models": {
+    "logistic_regression": {
+      "accuracy": 0.575,
+      "precision": 0.6588,
+      "recall": 0.7731,
+      "f1": 0.7114,
+      "roc_auc": 0.4368
+    },
+    "random_forest": {
+      "accuracy": 0.7238,
+      "precision": 0.7871,
+      "recall": 0.8118,
+      "f1": 0.7993,
+      "roc_auc": 0.7161
+    },
+    "gradient_boosting": {
+      "accuracy": 0.6462,
+      "precision": 0.8295,
+      "recall": 0.6015,
+      "f1": 0.6973,
+      "roc_auc": 0.721
+    },
+    "hist_gradient_boosting": {
+      "accuracy": 0.7238,
+      "precision": 0.8069,
+      "recall": 0.7786,
+      "f1": 0.7925,
+      "roc_auc": 0.741
+    }
+  }
+}

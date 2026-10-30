@@ -1,0 +1,4 @@
+Geography,customers,churn_rate,avg_age,avg_balance,avg_credit_score
+France,5014,0.162,38.512,62092.637,649.668
+Germany,2509,0.324,39.772,119730.116,651.454
+Spain,2477,0.167,38.891,61818.148,651.334

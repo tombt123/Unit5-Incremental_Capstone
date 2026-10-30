@@ -1,0 +1,12 @@
+{
+  "retrained_at": "2026-10-30T02:25:41.393422+00:00",
+  "reason": "accuracy below threshold",
+  "previous_model": "random_forest",
+  "previous_version": 1,
+  "previous_accuracy_on_recent_data": 0.5288,
+  "previous_f1_on_recent_data": 0.6165,
+  "new_model": "random_forest",
+  "new_version": 2,
+  "new_accuracy_on_recent_data": 0.7238,
+  "new_f1_on_recent_data": 0.7993
+}

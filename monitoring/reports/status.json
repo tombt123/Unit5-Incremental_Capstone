@@ -1,0 +1,10 @@
+{
+  "mode": "simulation",
+  "checked_at": "2026-10-30T02:25:14.148656+00:00",
+  "baseline_accuracy": 0.818,
+  "accuracy_threshold": 0.768,
+  "latest_accuracy": 0.5175,
+  "latest_drift_share": 0.2,
+  "retrain_needed": false,
+  "last_retrain": "2026-10-30T02:25:41.393422+00:00"
+}

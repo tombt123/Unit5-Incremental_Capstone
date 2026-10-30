@@ -1,0 +1,47 @@
+name: ML pipeline (CI/CD)
+
+# Runs on code or data changes, on pull requests, and on demand.
+on:
+  push:
+    branches: [main]
+    paths: ["src/**", "api/**", "monitoring/**", "tests/**", "data/raw/**", "requirements.txt", "Dockerfile", "pipeline.py"]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  train-test-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+
+      - name: Prepare data and run EDA
+        run: |
+          python -m src.prepare_data
+          python -m src.eda
+
+      - name: Train models (logged to MLflow, best registered)
+        run: python -m src.train --trigger ci
+
+      - name: Automated tests
+        run: python -m pytest -q tests
+
+      - name: Monitoring simulation (Evidently reports)
+        run: python -m monitoring.monitor
+
+      - name: Upload model, reports and monitoring output
+        uses: actions/upload-artifact@v4
+        with:
+          name: model-and-reports
+          path: |
+            models/
+            reports/
+            monitoring/reports/
+
+      - name: Build API container image
+        if: github.ref == 'refs/heads/main'
+        run: docker build -t churn-api:${{ github.sha }} .

@@ -1,0 +1,3 @@
+Gender,customers,churn_rate,avg_age,avg_balance,avg_credit_score
+Female,4543,0.251,39.238,75659.369,650.831
+Male,5457,0.165,38.658,77173.975,650.277

@@ -1,0 +1,3 @@
+IsActiveMember,customers,churn_rate,avg_age,avg_balance,avg_credit_score
+0,4849,0.269,37.998,77134.377,647.974
+1,5151,0.143,39.791,75875.422,652.934

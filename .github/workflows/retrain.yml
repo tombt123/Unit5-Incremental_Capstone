@@ -1,0 +1,38 @@
+name: Scheduled monitoring and retraining
+
+# Every Monday: re-check the model and retrain it if accuracy has dropped.
+on:
+  schedule:
+    - cron: "0 6 * * 1"   # 06:00 UTC every Monday
+  workflow_dispatch:
+
+jobs:
+  monitor-and-retrain:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+
+      # The trained model is not stored in git, so rebuild the current model first.
+      - name: Prepare data and train the current model
+        run: |
+          python -m src.prepare_data
+          python -m src.train --trigger scheduled-baseline
+
+      - name: Monitor accuracy and data drift
+        run: python -m monitoring.monitor
+
+      - name: Retrain if accuracy dropped below the threshold
+        run: python -m src.retrain
+
+      - name: Upload monitoring and retraining results
+        uses: actions/upload-artifact@v4
+        with:
+          name: monitoring-and-retrain
+          path: |
+            models/
+            monitoring/reports/

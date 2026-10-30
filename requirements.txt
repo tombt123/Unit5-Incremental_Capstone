@@ -1,0 +1,12 @@
+pandas==3.0.5          # pinned: newer pandas breaks Evidently 0.7
+evidently==0.7.23      # pinned together with pandas (tested pair)
+numpy
+matplotlib
+scikit-learn
+joblib
+mlflow
+fastapi
+uvicorn
+httpx
+pytest
+GitPython

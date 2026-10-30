@@ -1,0 +1,7 @@
+period,drift_severity,accuracy,precision,recall,f1,drift_share,drifted_columns,accuracy_alert,drift_alert
+0,0.0,0.82,0.5097,0.7095,0.5932,0.0,0,False,False
+1,0.2,0.73,0.4978,0.5302,0.5135,0.1,1,True,False
+2,0.4,0.6225,0.5141,0.471,0.4916,0.2,2,True,True
+3,0.6,0.5525,0.5323,0.4565,0.4915,0.2,2,True,True
+4,0.8,0.5188,0.604,0.515,0.5559,0.2,2,True,True
+5,1.0,0.5175,0.6864,0.5491,0.6101,0.2,2,True,True

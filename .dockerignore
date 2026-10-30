@@ -1,0 +1,10 @@
+.git
+__pycache__
+*.pyc
+.pytest_cache
+mlruns
+mlflow.db
+reports
+monitoring
+tests
+data/processed
